@@ -1,5 +1,7 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ T "meta_description" }}">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<script src="https://cdn.tailwindcss.com"></script>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}

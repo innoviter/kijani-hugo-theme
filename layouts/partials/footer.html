@@ -1,1 +1,33 @@
-<p>Copyright {{ now.Year }}. All rights reserved.</p>
+<div class="flex flex-col space-y-3">
+    <div>
+        <h4>{{ site.Params.footer.title }}</h4>
+    </div>
+    <div>
+        {{ site.Params.footer.subtitle }}
+    </div>
+    <div class="button">
+        {{ $opts := dict "path" "/contact" }}
+        <a href="{{ .RelRef $opts }}" title="{{ site.Params.footer.contact }}">
+            {{ site.Params.footer.contact_us }}
+        </a>
+    </div>
+    <div class="flex flex-col space-y-3">
+        <div>
+            {{ partial "menu.html" (dict "menuID" "footer" "page" .) }}
+        </div>
+<!--        <div>-->
+<!--            <nav aria-label="Language switcher">-->
+<!--                <ul class="flex flex-row space-x-3">-->
+<!--                    {{ if .Translations }}-->
+<!--                    {{ range .Translations }}-->
+<!--                    <li><a href="{{ .RelPermalink }}" class="underline">{{ .Language.Lang }}</a></li>-->
+<!--                    {{ end }}-->
+<!--                    {{ end }}-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--        </div>-->
+    </div>
+    <div class="pt-3 text-xs">
+        Copyright {{ now.Year }} Innoviter UG. All rights reserved.
+    </div>
+</div>

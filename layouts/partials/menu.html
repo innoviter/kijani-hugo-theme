@@ -35,6 +35,7 @@ Renders a menu for the given menu ID.
     {{- end }}
     <li>
       <a
+        class="underline hover:no-underline"
         {{- range $k, $v := $attrs }}
           {{- with $v }}
             {{- printf " %s=%q" $k $v | safeHTMLAttr }}

@@ -1,7 +1,21 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+<div>
+    <img
+        src="{{ .Params.cover_picture_prefix }}.960w.webp" width="960" height="480" alt="{{ .Title }} | {{ T "cover_picture" }}"
+        srcset="{{ .Params.cover_picture_prefix }}.580w.webp 580w, {{ .Params.cover_picture_prefix }}.700w.webp 700w, {{ .Params.cover_picture_prefix }}.960w.webp 960w"
+        sizes="(max-width: 640px) 580px, (max-width: 768px) 700px, (<max></max>-width: 1024px) 960px, 960px"
+    />
+</div>
+
+<h1><span class="heading">{{ .Title }}</span></h1>
+
+{{ .Content }}
+
+{{ range first 3 (where site.RegularPages.ByDate.Reverse "Section" "posts") }}
+<h2><span class="heading"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></span></h2>
+
+{{ .Summary }}
+
+<div><a href="{{ .RelPermalink }}">{{ site.Params.read_more }}</a></div>
+{{ end }}
 {{ end }}

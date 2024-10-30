@@ -1,0 +1,5 @@
+<div class="button">
+    <a href="{{ .Get "href" }}"{{ with .Get "title" }} title="{{ . }}"{{ end }}>
+    {{ .Inner }}
+    </a>
+</div>
