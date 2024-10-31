@@ -7,7 +7,7 @@
     />
 </div>
 
-<h1><span class="heading">{{ .Title }}</span></h1>
+<h1><span class="heading">{{ .Title | safeHTML }}</span></h1>
 
 {{ .Content }}
 
