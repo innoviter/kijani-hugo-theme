@@ -1,11 +1,15 @@
 {{ define "main" }}
+{{ if .Params.cover_picture.source_prefix }}
 <div>
-    <img
-        src="{{ .Params.cover_picture_prefix }}.960w.webp" width="960" height="480" alt="{{ .Title }} | {{ T "cover_picture" }}"
-        srcset="{{ .Params.cover_picture_prefix }}.580w.webp 580w, {{ .Params.cover_picture_prefix }}.700w.webp 700w, {{ .Params.cover_picture_prefix }}.960w.webp 960w"
-        sizes="(max-width: 640px) 580px, (max-width: 768px) 700px, (<max></max>-width: 1024px) 960px, 960px"
-    />
+    <figure>
+        <img src="{{ .Params.cover_picture.source_prefix }}.960w.webp" width="960" height="480" alt="{{ .Title }} | {{ T "cover_picture" }}"
+            srcset="{{ .Params.cover_picture.source_prefix }}.580w.webp 580w, {{ .Params.cover_picture.source_prefix }}.700w.webp 700w, {{ .Params.cover_picture.source_prefix }}.960w.webp 960w"
+            sizes="(max-width: 640px) 580px, (max-width: 768px) 700px, (<max></max>-width: 1024px) 960px, 960px"
+        />
+        <figcaption>{{ if .Params.cover_picture.caption }}{{ .Params.cover_picture.caption }}{{ else }}{{ T "image_auto_generation" }}{{ end }}</figcaption>
+    </figure>
 </div>
+{{ end }}
 
 <h1><span class="heading">{{ .Title | safeHTML }}</span></h1>
 
