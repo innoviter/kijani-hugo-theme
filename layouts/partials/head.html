@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{ T "meta_description" }}">
+<link href="/styles.min.css" rel="stylesheet">
 <title>{{ if .IsHome }}{{ site.Title | safeHTML }} | {{ site.Params.Subtitle | safeHTML }}{{ else }}{{ .Title | safeHTML }} | {{ site.Title | safeHTML }}{{ end }}</title>
-<script src="https://cdn.tailwindcss.com"></script>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}

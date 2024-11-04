@@ -1,0 +1,15 @@
+{
+  "name": "innv-site-tailwind-sass",
+  "version": "1.0.0",
+  "scripts": {
+    "tailwind:build:dev": "npx --yes tailwindcss styles.css -o static/styles.min.css",
+    "tailwind:build:prod": "npx --yes tailwindcss styles.css -o static/styles.min.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.14",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "autoprefixer": "^10.4.20",
+    "sass": "^1.80.6"
+  }
+}
