@@ -2,8 +2,8 @@
   "name": "innv-site-tailwind-sass",
   "version": "1.0.0",
   "scripts": {
-    "tailwind:build:dev": "npx --yes tailwindcss styles.css -o static/styles.min.css",
-    "tailwind:build:prod": "npx --yes tailwindcss styles.css -o static/styles.min.css --minify"
+    "tailwind:build:dev": "npx --yes tailwindcss -i styles.css -o static/styles.min.css",
+    "tailwind:build:prod": "npx --yes tailwindcss -i styles.css -o static/styles.min.css --minify"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.14",
