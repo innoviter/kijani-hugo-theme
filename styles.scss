@@ -31,7 +31,6 @@ header .logo, header .heading {
     font-size: 2rem;
     font-weight: bold;
     background: linear-gradient(transparent,transparent 35%,#a3e635 0,#a3e635 90%,transparent 0) no-repeat;
-
 }
 
 main {
@@ -148,6 +147,31 @@ main .button > a { border-color: #000000; }
 main .button > a:hover { background-color: #000000; color: #ffffff; }
 footer .button > a { border-color: #ffffff; }
 footer .button > a:hover { background-color: #ffffff; color: #000000; }
+
+#consent-banner {
+    z-index: 9999;
+    position: fixed;
+    background-color: rgba(163, 230, 53, 0.95);
+    bottom: 0;
+    right: 0;
+    border: 1px solid #000000;
+    padding: 1rem;
+    font-size: 0.75rem;
+    width: 100%;
+}
+#consent-banner > div {
+    padding: 0.5rem;
+}
+#consent-banner > div > button {
+    color: #ffffff;
+    border: 1px solid #000000;
+    background-color: #000000;
+    padding: 1rem 1.5rem;
+}
+#consent-banner > div > button:hover {
+    color: #000000;
+    background-color: #ffffff;
+}
 
 /* sm */
 @media (min-width: 640px) {

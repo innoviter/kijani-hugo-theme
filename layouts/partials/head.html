@@ -5,3 +5,5 @@
 <title>{{ if .IsHome }}{{ site.Title | safeHTML }} | {{ site.Params.Subtitle | safeHTML }}{{ else }}{{ .Title | safeHTML }} | {{ site.Title | safeHTML }}{{ end }}</title>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
+{{ partialCached "head/matomo.html" . }}
+{{ partialCached "head/consent-banner-js.html" . }}

@@ -1,0 +1,59 @@
+<script>
+    function getConsent() {
+        return JSON.parse(localStorage.getItem('consentSettings') || '{}');
+    }
+
+    function saveConsent() {
+        const settings = {
+            analytics: document.getElementById('consent-analytics').checked,
+            // youtube: document.getElementById('consent-youtube').checked
+        };
+        localStorage.setItem('consentSettings', JSON.stringify(settings));
+        document.getElementById('consent-banner').style.display = 'none';
+        applyConsent(settings);
+    }
+
+    function resetConsent() {
+        localStorage.removeItem('consentSettings');
+        location.reload();
+    }
+
+    function applyConsent(settings) {
+        if (settings.analytics) {
+            loadMatomo();
+        }
+        // if (settings.youtube) {
+        //     loadYouTube();
+        // }
+    }
+
+    function loadMatomo() {
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u = "//matomo.example.com/"; // Deine Matomo-URL
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '1']); // Deine Site-ID
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    }
+
+  //   function loadYouTube() {
+  //       const container = document.getElementById('youtube-placeholder');
+  //       container.innerHTML = `
+  //   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+  //     title="YouTube video" frameborder="0" allowfullscreen></iframe>
+  // `;
+  //   }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const consent = getConsent();
+        if (Object.keys(consent).length === 0) {
+            document.getElementById('consent-banner').style.display = 'block';
+        } else {
+            applyConsent(consent);
+        }
+    });
+</script>
